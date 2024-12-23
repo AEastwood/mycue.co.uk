@@ -9,7 +9,17 @@ export default {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './vendor/usernotnull/tall-toasts/config/**/*.php',
+        './vendor/usernotnull/tall-toasts/resources/views/**/*.blade.php',
     ],
+
+    colors: {
+        primary: '#1c1f25',
+    },
+
+    darkMode: 'class',
+
+    mode: 'jit',
 
     theme: {
         extend: {

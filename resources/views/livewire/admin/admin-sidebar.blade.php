@@ -108,7 +108,7 @@
     </div>
 
     <ul class="flex flex-col gap-2 w-full text-white">
-        <x-layout.components.admin.sidebar-link route="dashboard" text="Dashboard">
+        <x-layout.components.admin.sidebar-link route="dashboard.index" text="Dashboard">
             <svg
                 class="h-6 lg:h-5 my-auto w-full lg:w-1/4"
                 xmlns="http://www.w3.org/2000/svg"

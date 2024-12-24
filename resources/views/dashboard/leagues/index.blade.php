@@ -6,7 +6,7 @@
             </h2>
 
             <a
-                class="bg-blue-500 hover:bg-blue-600 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-white shadow rounded text-sm px-4 py-1.5"
+                class="bg-blue-500 hover:bg-blue-600 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-white shadow rounded text-sm px-4 py-1.5 my-auto"
                 href="{{ route('dashboard.leagues.create') }}"
             >
                 Create League

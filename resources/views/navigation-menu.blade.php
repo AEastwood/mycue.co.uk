@@ -5,15 +5,22 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard.index') }}">
-                        <x-application-mark class="block h-9 w-auto"/>
-                    </a>
+                    @auth
+                        <a href="{{ route('dashboard.index') }}">
+                            <x-application-mark class="block h-9 w-auto"/>
+                        </a>
+                    @else
+                        <a href="/">
+                            <x-application-mark class="block h-9 w-auto"/>
+                        </a>
+                    @endauth
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @auth
-                        <x-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
+                        <x-nav-link href="{{ route('dashboard.index') }}"
+                                    :active="request()->routeIs('dashboard.index')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     @endauth
@@ -68,8 +75,6 @@
                                         />
                                     </svg>
                                 </button>
-                                @else
-                                    Make an account / login
                                 @endauth
 
                             </span>
@@ -81,8 +86,6 @@
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ Auth::user()->name }}
                                 </div>
-                            @else
-                                Make an account / login
                             @endauth
 
                             <x-dropdown-link href="{{ route('admin.index') }}">
@@ -190,18 +193,20 @@
                         <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                     </div>
                 @else
-                    make an account / login
+                    <a href="{{ route('login') }}">Login</a>
                 @endauth
             </div>
 
             @auth
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
-                    <x-responsive-nav-link href="{{  route('admin.index') }}" :active="request()->routeIs('profile.show')">
+                    <x-responsive-nav-link href="{{  route('admin.index') }}"
+                                           :active="request()->routeIs('profile.show')">
                         {{ __('Admin Menu') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                    <x-responsive-nav-link href="{{ route('profile.show') }}"
+                                           :active="request()->routeIs('profile.show')">
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
 

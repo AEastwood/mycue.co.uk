@@ -21,6 +21,13 @@ export default {
 
     mode: 'jit',
 
+    safelist: [
+        {
+            pattern: /^(bg-|border-|text-)/,
+            variants: ["hover", "active"],
+        },
+    ],
+
     theme: {
         extend: {
             fontFamily: {

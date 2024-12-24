@@ -3,8 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Dashboard\Leagues\League;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Lab404\Impersonate\Models\Impersonate;
@@ -70,6 +72,8 @@ class User extends Authenticatable
         ];
     }
 
+    // <editor-fold desc="Attributes">
+
     /**
      * @return Attribute
      */
@@ -80,4 +84,19 @@ class User extends Authenticatable
             set: fn($value) => strtolower($value),
         );
     }
+
+    // </editor-fold>
+
+    // <editor-fold desc="Relationships">
+
+    /**
+     * @return HasMany
+     */
+    public function leagues(): HasMany
+    {
+        return $this->hasMany(League::class);
+    }
+
+    // </editor-fold>
+
 }

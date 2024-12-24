@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Leagues;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dashboard\Leagues\League;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,17 @@ class LeagueController extends Controller
     public function index(): View
     {
         return view('dashboard.leagues.index');
+    }
+
+    /**
+     * @param League $league
+     * @return View
+     */
+    public function show(League $league): View
+    {
+        return view('dashboard.leagues.show', [
+            'league' => $league
+        ]);
     }
 
 }

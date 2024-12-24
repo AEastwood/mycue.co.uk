@@ -6,6 +6,7 @@
     </x-slot>
 
     <div class="py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <livewire:dashboard.leagues.create-league/>
+        {{ $league->name }}
+        {{ $league->admin->name }}
     </div>
 </x-app-layout>

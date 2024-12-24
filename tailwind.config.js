@@ -23,7 +23,7 @@ export default {
 
     safelist: [
         {
-            pattern: /^(bg-|border-|text-)/,
+            pattern: /^(bg-(red|blue|green|gray)-(100|200|500|700)|text-(red|blue|green|gray)-(500|700)|border-(red|blue|green|gray)-(500|700))/,
             variants: ["hover", "active"],
         },
     ],

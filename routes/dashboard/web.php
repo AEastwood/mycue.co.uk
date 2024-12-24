@@ -17,7 +17,7 @@ Route::prefix('')->as('dashboard.')
     ->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])
     ->controller(DashboardController::class)
     ->group(function () {
-        Route::resource('community', CommunityController::class);
-        Route::resource('head2head', Head2HeadController::class);
-        Route::resource('leagues', LeagueController::class);
+        Route::resource('community', CommunityController::class)->only(['index']);
+        Route::resource('head2head', Head2HeadController::class)->only(['index']);
+        Route::resource('leagues', LeagueController::class)->only(['create', 'index', 'show', 'update']);
     });
